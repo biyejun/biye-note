@@ -203,7 +203,7 @@ export default defineConfig({
                   },
                   {
                     text: '"new Function" 语法',
-                    link: '/"new Function" 语法',
+                    link: '/new Function语法',
                   },
                   {
                     text: 'js中垃圾回收',
