@@ -314,8 +314,8 @@ export default defineConfig({
                     link: '/字符类',
                   },
                   {
-                    text: 'Unicode：修饰符 “u” 和 class \p {}',
-                    link: '/Unicode：修饰符 “u” 和 class \p {}',
+                    text: 'Unicode：修饰符 “u” 和 class p {}',
+                    link: '/Unicode：修饰符 “u” 和 class p {}',
                   },
                   {
                     text: '锚点（Anchors）：字符串开始^和末尾$',
@@ -350,8 +350,8 @@ export default defineConfig({
                     link: '/捕获组',
                   },
                   {
-                    text: '模式中的反向引用：`\N` 和 `\k<name>`',
-                    link: '/模式中的反向引用：`\N` 和 `\k<name>`',
+                    text: '模式中的反向引用：`N` 和 `k<name>`',
+                    link: '/模式中的反向引用：`N` 和 `k<name>`',
                   },
                   {
                     text: '选择（OR）|',
@@ -435,39 +435,10 @@ export default defineConfig({
       },
     },
 
-    /* sidebar: [
-      {
-        text: '前端面试题',
-        link: '/前端/前端面试题/index',
-        items: [
-          {
-            text: 'HTML、CSS、浏览器',
-            items: [
-              {
-                text: 'html',
-                items: [],
-              },
-              {
-                text: 'css',
-                items: [],
-              },
-              {
-                text: '浏览器优化首屏加载（关键渲染路径CRP评估）',
-                items: [],
-              },
-            ],
-          },
-          { text: 'Runtime API Examples', link: '/api-examples' },
-        ],
-      },
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' },
-        ],
-      },
-    ], */
+    footer: {
+      message: 'biye-note',
+      copyright: `Copyright © 2024-present <a href="https://baidu.com">百度</a>`,
+    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
