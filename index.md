@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "biye-note"
-  text: "biyejun study notes"
+  text: "biyejun study notes hhhh"
   tagline: My great project tagline
   actions:
     - theme: brand
