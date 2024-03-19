@@ -437,7 +437,7 @@ export default defineConfig({
 
     footer: {
       message: 'biye-note',
-      copyright: `Copyright © 2024-present <a href="https://baidu.com">百度</a>`,
+      copyright: `Copyright © 2024-present <a href="http://beian.miit.gov.cn/">京ICP备2021032683号-2</a>`,
     },
 
     socialLinks: [
