@@ -5,42 +5,45 @@
 
 
 ```js
-
-function ListNode(x) {
-	this.val = x
-	this.next = null
-}
-
 /* 
-  从尾到头打印
-  1. 先遍历一遍链表 遍历的过程中 将下个节点的pre指向前一个节点，变成一个双向链表，遍历到最后保存尾指针
-  2. 再从尾指针遍历一遍，保存结果
+递归
 */
 function printListFromTailToHead(head) {
 	const result = []
 
-	let cur = head
-	let tail = null // 尾指针
-	let next = null // 下一个指针
-
-	while (cur) {
-		if (cur) {
-			tail = cur
+	function traverse(node) {
+		if (node === null) {
+			return
 		}
-
-		next = cur.next
-
-		if (next) {
-			next.pre = cur
-		}
-
-		cur = cur.next
+		traverse(node.next) // 递归到链表末尾
+		result.push(node.val) // 到达链表末尾后开始添加到结果数组
 	}
 
+	traverse(head)
 
-  while (tail) {
-    result.push(tail.val)
-		tail = tail.pre
+	return result
+}
+```
+
+```js
+/* 
+栈
+*/
+function printListFromTailToHead(head) {
+	const stack = []
+	let currentNode = head
+
+	// 遍历链表，将所有节点的值压入栈中
+	while (currentNode !== null) {
+		stack.push(currentNode.val)
+		currentNode = currentNode.next
+	}
+
+	const result = []
+
+	// 将栈中的值依次弹出并添加到结果数组中
+	while (stack.length > 0) {
+		result.push(stack.pop())
 	}
 
 	return result

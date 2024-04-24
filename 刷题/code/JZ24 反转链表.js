@@ -14,18 +14,18 @@ n2.next = n3
 反转链表
 */
 function ReverseList(head) {
-	let prev = null
-	let current = head
-	while (current !== null) {
-		const nextTemp = current.next // 暂存下一个节点
-		current.next = prev // 反转指向
-		prev = current // 前移prev
-		current = nextTemp // 前移current
-	}
-	return prev // 当current为空时，prev就是新的头节点
-}
+	let pre = null
+	let cur = head
 
+	while (cur) {
+		let tempNext = cur.next
+		cur.next = pre
+		pre = cur
+		cur = tempNext
+	}
+	return pre
+}
 
 const newHead = ReverseList(n1)
 
-console.log(newHead);
+console.log(newHead)
