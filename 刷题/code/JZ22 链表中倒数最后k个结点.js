@@ -15,9 +15,25 @@ function FindKthToTail(pHead, k) {
 		return null
 	}
 
-  let currentNode = pHead
-  let len = 0
-  while(currentNode) {
-len
-  }
+	let currentNode = pHead
+	let len = 0
+	// 计算长度
+	while (currentNode) {
+		len++
+		currentNode = currentNode.next
+	}
+	// 长度小于K的话 直接返回null
+	if (len < k) {
+		return null
+	}
+
+	let targentIndex = len - k
+
+	// 第二次遍历 找到目标
+	currentNode = pHead
+	for (let i = 0; i < targentIndex; i++) {
+		currentNode = currentNode.next
+	}
+
+	return currentNode
 }
