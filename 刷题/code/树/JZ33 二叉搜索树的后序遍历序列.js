@@ -1,51 +1,36 @@
-function TreeNode(x) {
-	this.val = x
-	this.left = null
-	this.right = null
-}
+function isPopOrder(inorder, sequence) {
+	const len = inorder.length
+	const stack = []
 
-function check(sequence, leftIndex, rightIndex) {
-	// 当只剩一个节点的时候，返回true
-	if (leftIndex >= rightIndex) {
-		return true
-	}
+	let i = 0
+	let j = 0
 
-	const root = sequence[rightIndex] // 根节点
+	while (i < len) {
+		stack.push(inorder[i])
 
-	let j = rightIndex - 1
-
-	// 找到左右子树的分界点
-	while (j >= 0 && sequence[j] > root) {
-		j--
-	}
-
-	for (let i = leftIndex; i <= j; i++) {
-		// 左子树的值应该都小于根
-		if (sequence[i] > root) {
-			return false
+		while (stack.length && stack[stack.length - 1] === sequence[j]) {
+			j++
+			stack.pop()
 		}
+
+		i++
 	}
 
-	return check(sequence, leftIndex, j) && check(sequence, j + 1, rightIndex - 1)
+	// 检查所有元素都匹配过了 说明后序遍历的的结果合法
+	return j === len
 }
-
 /* 
-递归
-分治求解
+栈
+二叉树的中序遍历和后序遍历对应着一种栈的压入、弹出序列, 
+而对后序遍历序列从小到大排序就得到了中序遍历序列
 
-后序遍历 左 右 根
-二叉搜索树 左边的值 小于根 小于右边的值
-
-给一个后序遍历的数组 最后一个值肯定是跟 然后根据大小 可以将前面的值分为两组 左子树（比根小） 和 右子树（比根大）
-例如[4, 8, 6, 12, 16, 14, 10]可以根据根节点的值将其划分为左子树[4, 8, 6], 右子树[12, 16, 14], 根[10], 
-采用分治的思想，检查左子树和右子树，当且仅当左右子树都符合时，返回true
+得到中序遍历序列后, 将其作为入栈序列, 检查后序遍历序列是不是一个合法的出栈序列
 */
 function VerifySquenceOfBST(sequence) {
-	const len = sequence.length
+	if (sequence.length === 0) return false
 
-	if (len === 0) {
-		return false
-	}
+	// 创建一个序列的副本并排序，以模拟中序遍历
+	const inorder = [...sequence].sort((a, b) => a - b)
 
-	return check(sequence, 0, len - 1)
+	return isPopOrder(inorder, sequence)
 }
