@@ -5,32 +5,19 @@ function TreeNode(x) {
 }
 
 /* 
-使用栈
-层次遍历 遍历所有节点 交换
+递归
+先序遍历 根左右
+
 */
 function Mirror(pRoot) {
-	if (pRoot === null) {
+	if (!pRoot) {
 		return null
 	}
-
-	const stack = []
-	stack.push(pRoot)
-
-	while (stack.length) {
-		const currentNode = stack.pop()
-
-		// 交换左右两个节点
-		const leftNode = currentNode.left
-		currentNode.left = currentNode.right
-		currentNode.right = leftNode
-
-		if (currentNode.left) {
-			stack.push(currentNode.left)
-		}
-		if (currentNode.right) {
-			stack.push(currentNode.right)
-		}
-	}
-
+	const leftNode = pRoot.left
+	pRoot.left = pRoot.right
+	pRoot.right = leftNode
+	
+	Mirror(pRoot.left)
+	Mirror(pRoot.right)
 	return pRoot
 }
