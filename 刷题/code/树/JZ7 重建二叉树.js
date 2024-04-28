@@ -26,6 +26,17 @@ function reConstructBinaryTree(preOrder, inOrder) {
 	let root = new TreeNode(preOrder[0])
 	let currentNode = root
 
+	/* 
+		前序遍历序列 {1,2,4,7,3,5,6,8} i
+		中序遍历序列 {4,7,2,1,5,3,8,6} j
+
+
+		前序遍历序列 {1,2,3} i
+		中序遍历序列 {2,1,3} j
+
+		前序遍历序列 {1,2,4,3} i
+		中序遍历序列 {4,2,1,3} j
+	*/
 	for (let i = 1, j = 0; i < preOrder.length; i++) {
 		// 第一种情况
 		if (currentNode.val !== inOrder[j]) {
@@ -48,3 +59,14 @@ function reConstructBinaryTree(preOrder, inOrder) {
 
 	return root
 }
+
+// const preOrder = [1, 2, 4, 7, 3, 5, 6, 8]
+// const inOrder = [4, 7, 2, 1, 5, 3, 8, 6]
+
+// const preOrder = [1, 2, 3]
+// const inOrder = [2, 1, 3]
+
+const preOrder = [1, 2, 4, 3]
+const inOrder = [4, 2, 1, 3]
+const root = reConstructBinaryTree(preOrder, inOrder)
+console.log(root)
