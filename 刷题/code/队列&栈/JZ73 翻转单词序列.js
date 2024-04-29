@@ -1,6 +1,14 @@
 /* 
-使用api
+使用栈
 */
 function ReverseSentence(str) {
-  return str.split(' ').reverse().join(' ')
+	const result = []
+
+	let stack = str.split(' ')
+
+	while (stack.length) {
+		result.push(stack.pop())
+	}
+
+	return result.join(' ')
 }
